@@ -19,6 +19,7 @@
 **
 ****************************************************************************/
 
+#include "../config_windows.h"
 #ifndef HAVE_MYSQL
 #error MySQLConnection.h included, but HAVE_MYSQL not defined
 #endif

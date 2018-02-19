@@ -161,6 +161,8 @@ typedef FIX::PRECISION PRECISION;
 %include "../C++/SessionID.h"
 %include "../C++/Log.h"
 %include "../C++/FileLog.h"
+%include "../C++/DatabaseConnectionID.h"
+%include "../C++/MySQLConnection.h"
 %include "../C++/MySQLLog.h"
 %include "../C++/MessageStore.h"
 %include "../C++/FileStore.h"

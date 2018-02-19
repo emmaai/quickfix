@@ -38504,18 +38504,6 @@ StreamAsgnType_ASSIGNMENT = cvar.StreamAsgnType_ASSIGNMENT
 StreamAsgnType_REJECTED = cvar.StreamAsgnType_REJECTED
 StreamAsgnType_TERMINATE_UNASSIGN = cvar.StreamAsgnType_TERMINATE_UNASSIGN
 
-
-def __lt__(*args):
-    return _quickfix.__lt__(*args)
-__lt__ = _quickfix.__lt__
-
-def __eq__(*args):
-    return _quickfix.__eq__(*args)
-__eq__ = _quickfix.__eq__
-
-def __ne__(*args):
-    return _quickfix.__ne__(*args)
-__ne__ = _quickfix.__ne__
 class Dictionary(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Dictionary, name, value)
@@ -39198,6 +39186,117 @@ class FileLog(Log):
         return _quickfix.FileLog_setMillisecondsInTimeStamp(self, value)
 FileLog_swigregister = _quickfix.FileLog_swigregister
 FileLog_swigregister(FileLog)
+
+class DatabaseConnectionID(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DatabaseConnectionID, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, DatabaseConnectionID, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, database, user, password, host, port):
+        this = _quickfix.new_DatabaseConnectionID(database, user, password, host, port)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def getDatabase(self):
+        return _quickfix.DatabaseConnectionID_getDatabase(self)
+
+    def getUser(self):
+        return _quickfix.DatabaseConnectionID_getUser(self)
+
+    def getPassword(self):
+        return _quickfix.DatabaseConnectionID_getPassword(self)
+
+    def getHost(self):
+        return _quickfix.DatabaseConnectionID_getHost(self)
+
+    def getPort(self):
+        return _quickfix.DatabaseConnectionID_getPort(self)
+    __swig_destroy__ = _quickfix.delete_DatabaseConnectionID
+    __del__ = lambda self: None
+DatabaseConnectionID_swigregister = _quickfix.DatabaseConnectionID_swigregister
+DatabaseConnectionID_swigregister(DatabaseConnectionID)
+
+
+def __lt__(*args):
+    return _quickfix.__lt__(*args)
+__lt__ = _quickfix.__lt__
+
+def __eq__(*args):
+    return _quickfix.__eq__(*args)
+__eq__ = _quickfix.__eq__
+
+def __ne__(*args):
+    return _quickfix.__ne__(*args)
+__ne__ = _quickfix.__ne__
+class MySQLQuery(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MySQLQuery, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, MySQLQuery, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, query):
+        this = _quickfix.new_MySQLQuery(query)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _quickfix.delete_MySQLQuery
+    __del__ = lambda self: None
+
+    def execute(self, pConnection):
+        return _quickfix.MySQLQuery_execute(self, pConnection)
+
+    def success(self):
+        return _quickfix.MySQLQuery_success(self)
+
+    def rows(self):
+        return _quickfix.MySQLQuery_rows(self)
+
+    def reason(self):
+        return _quickfix.MySQLQuery_reason(self)
+
+    def getValue(self, row, column):
+        return _quickfix.MySQLQuery_getValue(self, row, column)
+
+    def throwException(self):
+        return _quickfix.MySQLQuery_throwException(self)
+MySQLQuery_swigregister = _quickfix.MySQLQuery_swigregister
+MySQLQuery_swigregister(MySQLQuery)
+
+class MySQLConnection(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MySQLConnection, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, MySQLConnection, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = _quickfix.new_MySQLConnection(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _quickfix.delete_MySQLConnection
+    __del__ = lambda self: None
+
+    def connectionID(self):
+        return _quickfix.MySQLConnection_connectionID(self)
+
+    def connected(self):
+        return _quickfix.MySQLConnection_connected(self)
+
+    def reconnect(self):
+        return _quickfix.MySQLConnection_reconnect(self)
+
+    def execute(self, pQuery):
+        return _quickfix.MySQLConnection_execute(self, pQuery)
+MySQLConnection_swigregister = _quickfix.MySQLConnection_swigregister
+MySQLConnection_swigregister(MySQLConnection)
 
 class MySQLLog(Log):
     __swig_setmethods__ = {}
