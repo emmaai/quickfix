@@ -61,6 +61,7 @@ typedef FIX::MessageStore MessageStore;
 typedef FIX::MessageStoreFactory MessageStoreFactory;
 typedef FIX::Mutex Mutex;
 typedef FIX::DOMDocumentPtr DOMDocumentPtr;
+typedef FIX::PRECISION PRECISION;
 %}
 
 %typedef DoubleField PriceField;
