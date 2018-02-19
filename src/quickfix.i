@@ -31,8 +31,10 @@
 #include <SessionID.h>
 #include <Log.h>
 #include <FileLog.h>
+#include <MySQLLog.h>
 #include <MessageStore.h>
 #include <FileStore.h>
+#include <MySQLStore.h>
 #include <Application.h>
 #include <Initiator.h>
 #include <SocketInitiator.h>
@@ -142,6 +144,7 @@ typedef FIX::PRECISION PRECISION;
   }
 }
 
+%include "../config_windows.h"
 %include "../C++/Exceptions.h"
 %include "../C++/Field.h"
 %include "../C++/FieldMap.h"
@@ -158,8 +161,10 @@ typedef FIX::PRECISION PRECISION;
 %include "../C++/SessionID.h"
 %include "../C++/Log.h"
 %include "../C++/FileLog.h"
+%include "../C++/MySQLLog.h"
 %include "../C++/MessageStore.h"
 %include "../C++/FileStore.h"
+%include "../C++/MySQLStore.h"
 %include "../C++/Application.h"
 %include "../C++/Initiator.h"
 %include "../C++/SocketInitiator.h"

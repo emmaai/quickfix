@@ -137,6 +137,8 @@ def IntArray_frompointer(t):
     return _quickfix.IntArray_frompointer(t)
 IntArray_frompointer = _quickfix.IntArray_frompointer
 
+HAVE_MYSQL = _quickfix.HAVE_MYSQL
+HAVE_FTIME = _quickfix.HAVE_FTIME
 class FIXException(Exception):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, FIXException, name, value)
@@ -38649,6 +38651,7 @@ VALIDATE_LENGTH_AND_CHECKSUM = cvar.VALIDATE_LENGTH_AND_CHECKSUM
 VALIDATE_FIELDS_OUT_OF_ORDER = cvar.VALIDATE_FIELDS_OUT_OF_ORDER
 VALIDATE_FIELDS_HAVE_VALUES = cvar.VALIDATE_FIELDS_HAVE_VALUES
 VALIDATE_USER_DEFINED_FIELDS = cvar.VALIDATE_USER_DEFINED_FIELDS
+ALLOW_UNKNOWN_MSG_FIELDS = cvar.ALLOW_UNKNOWN_MSG_FIELDS
 LOGON_TIMEOUT = cvar.LOGON_TIMEOUT
 LOGOUT_TIMEOUT = cvar.LOGOUT_TIMEOUT
 FILE_STORE_PATH = cvar.FILE_STORE_PATH
@@ -39196,6 +39199,85 @@ class FileLog(Log):
 FileLog_swigregister = _quickfix.FileLog_swigregister
 FileLog_swigregister(FileLog)
 
+class MySQLLog(Log):
+    __swig_setmethods__ = {}
+    for _s in [Log]:
+        __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MySQLLog, name, value)
+    __swig_getmethods__ = {}
+    for _s in [Log]:
+        __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MySQLLog, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = _quickfix.new_MySQLLog(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _quickfix.delete_MySQLLog
+    __del__ = lambda self: None
+
+    def clear(self):
+        return _quickfix.MySQLLog_clear(self)
+
+    def backup(self):
+        return _quickfix.MySQLLog_backup(self)
+
+    def setIncomingTable(self, incomingTable):
+        return _quickfix.MySQLLog_setIncomingTable(self, incomingTable)
+
+    def setOutgoingTable(self, outgoingTable):
+        return _quickfix.MySQLLog_setOutgoingTable(self, outgoingTable)
+
+    def setEventTable(self, eventTable):
+        return _quickfix.MySQLLog_setEventTable(self, eventTable)
+
+    def onIncoming(self, value):
+        return _quickfix.MySQLLog_onIncoming(self, value)
+
+    def onOutgoing(self, value):
+        return _quickfix.MySQLLog_onOutgoing(self, value)
+
+    def onEvent(self, value):
+        return _quickfix.MySQLLog_onEvent(self, value)
+MySQLLog_swigregister = _quickfix.MySQLLog_swigregister
+MySQLLog_swigregister(MySQLLog)
+
+class MySQLLogFactory(LogFactory):
+    __swig_setmethods__ = {}
+    for _s in [LogFactory]:
+        __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MySQLLogFactory, name, value)
+    __swig_getmethods__ = {}
+    for _s in [LogFactory]:
+        __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MySQLLogFactory, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = _quickfix.new_MySQLLogFactory(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def create(self, *args):
+        return _quickfix.MySQLLogFactory_create(self, *args)
+
+    def destroy(self, arg2):
+        return _quickfix.MySQLLogFactory_destroy(self, arg2)
+    __swig_destroy__ = _quickfix.delete_MySQLLogFactory
+    __del__ = lambda self: None
+MySQLLogFactory_swigregister = _quickfix.MySQLLogFactory_swigregister
+MySQLLogFactory_swigregister(MySQLLogFactory)
+MySQLLogFactory.DEFAULT_DATABASE = _quickfix.cvar.MySQLLogFactory_DEFAULT_DATABASE
+MySQLLogFactory.DEFAULT_USER = _quickfix.cvar.MySQLLogFactory_DEFAULT_USER
+MySQLLogFactory.DEFAULT_PASSWORD = _quickfix.cvar.MySQLLogFactory_DEFAULT_PASSWORD
+MySQLLogFactory.DEFAULT_HOST = _quickfix.cvar.MySQLLogFactory_DEFAULT_HOST
+MySQLLogFactory.DEFAULT_PORT = _quickfix.cvar.MySQLLogFactory_DEFAULT_PORT
+
 class MessageStoreFactory(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, MessageStoreFactory, name, value)
@@ -39506,6 +39588,94 @@ class FileStore(MessageStore):
         return _quickfix.FileStore_refresh(self)
 FileStore_swigregister = _quickfix.FileStore_swigregister
 FileStore_swigregister(FileStore)
+
+class MySQLStoreFactory(MessageStoreFactory):
+    __swig_setmethods__ = {}
+    for _s in [MessageStoreFactory]:
+        __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MySQLStoreFactory, name, value)
+    __swig_getmethods__ = {}
+    for _s in [MessageStoreFactory]:
+        __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MySQLStoreFactory, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = _quickfix.new_MySQLStoreFactory(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+
+    def create(self, arg2):
+        return _quickfix.MySQLStoreFactory_create(self, arg2)
+
+    def destroy(self, arg2):
+        return _quickfix.MySQLStoreFactory_destroy(self, arg2)
+    __swig_destroy__ = _quickfix.delete_MySQLStoreFactory
+    __del__ = lambda self: None
+MySQLStoreFactory_swigregister = _quickfix.MySQLStoreFactory_swigregister
+MySQLStoreFactory_swigregister(MySQLStoreFactory)
+MySQLStoreFactory.DEFAULT_DATABASE = _quickfix.cvar.MySQLStoreFactory_DEFAULT_DATABASE
+MySQLStoreFactory.DEFAULT_USER = _quickfix.cvar.MySQLStoreFactory_DEFAULT_USER
+MySQLStoreFactory.DEFAULT_PASSWORD = _quickfix.cvar.MySQLStoreFactory_DEFAULT_PASSWORD
+MySQLStoreFactory.DEFAULT_HOST = _quickfix.cvar.MySQLStoreFactory_DEFAULT_HOST
+MySQLStoreFactory.DEFAULT_PORT = _quickfix.cvar.MySQLStoreFactory_DEFAULT_PORT
+
+class MySQLStore(MessageStore):
+    __swig_setmethods__ = {}
+    for _s in [MessageStore]:
+        __swig_setmethods__.update(getattr(_s, '__swig_setmethods__', {}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MySQLStore, name, value)
+    __swig_getmethods__ = {}
+    for _s in [MessageStore]:
+        __swig_getmethods__.update(getattr(_s, '__swig_getmethods__', {}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MySQLStore, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = _quickfix.new_MySQLStore(*args)
+        try:
+            self.this.append(this)
+        except __builtin__.Exception:
+            self.this = this
+    __swig_destroy__ = _quickfix.delete_MySQLStore
+    __del__ = lambda self: None
+
+    def set(self, arg2, arg3):
+        return _quickfix.MySQLStore_set(self, arg2, arg3)
+
+    def get(self, arg2, arg3, arg4):
+        return _quickfix.MySQLStore_get(self, arg2, arg3, arg4)
+
+    def getNextSenderMsgSeqNum(self):
+        return _quickfix.MySQLStore_getNextSenderMsgSeqNum(self)
+
+    def getNextTargetMsgSeqNum(self):
+        return _quickfix.MySQLStore_getNextTargetMsgSeqNum(self)
+
+    def setNextSenderMsgSeqNum(self, value):
+        return _quickfix.MySQLStore_setNextSenderMsgSeqNum(self, value)
+
+    def setNextTargetMsgSeqNum(self, value):
+        return _quickfix.MySQLStore_setNextTargetMsgSeqNum(self, value)
+
+    def incrNextSenderMsgSeqNum(self):
+        return _quickfix.MySQLStore_incrNextSenderMsgSeqNum(self)
+
+    def incrNextTargetMsgSeqNum(self):
+        return _quickfix.MySQLStore_incrNextTargetMsgSeqNum(self)
+
+    def getCreationTime(self):
+        return _quickfix.MySQLStore_getCreationTime(self)
+
+    def reset(self):
+        return _quickfix.MySQLStore_reset(self)
+
+    def refresh(self):
+        return _quickfix.MySQLStore_refresh(self)
+MySQLStore_swigregister = _quickfix.MySQLStore_swigregister
+MySQLStore_swigregister(MySQLStore)
 
 class Application(_object):
     __swig_setmethods__ = {}
@@ -39903,6 +40073,9 @@ class DataDictionary(_object):
 
     def checkUserDefinedFields(self, value):
         return _quickfix.DataDictionary_checkUserDefinedFields(self, value)
+
+    def allowUnknownMsgFields(self, value):
+        return _quickfix.DataDictionary_allowUnknownMsgFields(self, value)
 
     def validate(self, *args):
         return _quickfix.DataDictionary_validate(self, *args)
