@@ -1,4 +1,5 @@
-pythondir = $(PYTHON3_SITE_PACKAGES)
+#pythondir = $(PYTHON3_SITE_PACKAGES)
+pythondir = $(PYTHONUSERBASE)/lib/python3.6/site-packages
 python_LTLIBRARIES = _quickfix.la
 _quickfix_la_SOURCES = \
 	QuickfixPython.cpp

@@ -51,8 +51,8 @@ typedef FIX::DataDictionaryProvider DataDictionaryProvider;
 typedef FIX::MsgType MsgType;
 typedef FIX::BeginString BeginString;
 typedef FIX::ApplVerID ApplVerID;
-typedef FIX::SessionID SessionID;
 typedef FIX::Session Session;
+typedef FIX::SessionID SessionID;
 typedef FIX::Application Application;
 typedef FIX::DateTime DateTime;
 typedef FIX::TimeRange TimeRange;
@@ -66,6 +66,7 @@ typedef FIX::DOMDocumentPtr DOMDocumentPtr;
 typedef FIX::PRECISION PRECISION;
 %}
 
+%typedef FIX::SessionID SessionID;
 %typedef DoubleField PriceField;
 %typedef DoubleField AmtField;
 %typedef DoubleField QtyField;
